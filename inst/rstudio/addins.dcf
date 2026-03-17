@@ -1,4 +1,4 @@
-Name: Extract External R Code and Insert Inline (URLs)
+Name: Extract External R Code and Insert Inline
 Description: Prompt for a web URL, extract R code, and insert them into the active editor. Supports raw source and rendered HTML.
 Binding: addin_crawl_chunks
 Interactive: true
