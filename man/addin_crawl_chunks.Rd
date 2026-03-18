@@ -25,7 +25,7 @@ current cursor position.
 
 After installing the package, open
 \strong{Tools > Modify Keyboard Shortcuts…} (RStudio) or the Command Palette
-in Positron, search for \emph{"Crawl R Chunks from URL"}, and assign your
+in Positron, search for \emph{"Extract External R Code and Insert Inline"}, and assign your
 preferred shortcut (e.g. \code{Ctrl+Shift+U} / \code{Cmd+Shift+U}).
 }
 

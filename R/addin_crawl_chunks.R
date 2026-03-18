@@ -11,7 +11,7 @@
 #' @section Keyboard shortcut:
 #' After installing the package, open
 #' **Tools > Modify Keyboard Shortcuts…** (RStudio) or the Command Palette
-#' in Positron, search for *"Crawl R Chunks from URL"*, and assign your
+#' in Positron, search for *"Extract External R Code and Insert Inline"*, and assign your
 #' preferred shortcut (e.g. `Ctrl+Shift+U` / `Cmd+Shift+U`).
 #'
 #' @return Called for side effects (i.e., inserting text); returns `NULL` invisibly.
