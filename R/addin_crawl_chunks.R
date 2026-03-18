@@ -31,8 +31,7 @@ addin_crawl_chunks <- function() {
   url <- rstudioapi::showPrompt(
     title   = "Extract R Code From URL",
     message = paste0(
-      "Enter a URL that contains R code (e.g., raw source or rendered HTML page).\n",
-      "Remember to check the source license before reusing code."
+      "Enter a URL to page that contains R code (e.g., raw source or rendered HTML)"
     ),
     default = ""
   )
