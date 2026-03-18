@@ -23,16 +23,15 @@ addin_crawl_chunks <- function() {
   if (!rstudioapi::isAvailable()) {
     stop(
       "This addin requires RStudio (>= 1.1) or Positron. ",
-      "It cannot be run from a plain R console.",
       call. = FALSE
     )
   }
 
   ## pop open the prompt for url
   url <- rstudioapi::showPrompt(
-    title   = "Crawl R Chunks",
+    title   = "Extract R Code From URL",
     message = paste0(
-      "Enter a URL (raw source, GitHub repo, or rendered page).\n",
+      "Enter a URL that contains R code (e.g., raw source or rendered HTML page).\n",
       "Remember to check the source license before reusing code."
     ),
     default = ""
