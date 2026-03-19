@@ -6,7 +6,6 @@
 
 Fetch R code from an external source and insert it directly in an editor. Built as an add-in for integrating with Positron and RStudio.
 
-
 ## Overview
 
 ### Motivation
@@ -19,9 +18,7 @@ Enter `ctrlvee` ...
 
 ### Solution
 
-`ctrlvee` provides functionality to parse R code from a given URL that contains either rendered R chunks (e.g., Quarto book, RMarkdown vignette, GitHub README) or "raw" R code (e.g., Rmd/Qmd/Md, files with fenced chunks, R script in a Gist). Through the provided Positron/RStudio add-in, the parsed code will be inserted directly into the editor so you can run it on your system.
-
-While scraping the contents from the URL, `ctrlvee` checks the source to automatically detect a strategy (i.e., HTML or raw).
+`ctrlvee` provides functionality to parse R code from a given URL that contains either rendered R chunks (e.g., Quarto book, RMarkdown vignette, GitHub README) or "raw" R code (e.g., Rmd/Qmd/Md, files with fenced chunks, R script in a Gist). The Positron/RStudio add-in provided in this package will insert the parsed code directly into the editor so you can run it on your system.
 
 ## Setup
 
@@ -37,17 +34,17 @@ pak::pkg_install("vpnagraj/ctrlvee")
 
 ### Keyboard shortcuts
 
-`ctrlvee` is written as an add-in for Positron and RStudio. For easisest access, consider configuring a keyboard shortcut:
+`ctrlvee` is written as an add-in for Positron and RStudio. For easiest access, consider configuring a keyboard shortcut:
 
-- **RStudio:** Tools → Modify Keyboard Shortcuts → search "Extract External R Code"
 - **Positron:** Command Palette → search "Extract External R Code"
+- **RStudio:** Tools → Modify Keyboard Shortcuts → search "Extract External R Code"
 
 ## Usage
 
 ### Quick start
 
 1. Install `ctrlvee`
-2. Open any `.R` script in RStudio or Positron
+2. Open any `.R` script in Positron or RStudio
 3. Place your cursor where you want code inserted
 4. **Addins → Extract External R Code and Insert Inline** (or your keyboard shortcut).
 5. Paste a URL (e.g., rendered Quarto chapter like https://dstt.stephenturner.us/validation.html)
