@@ -108,7 +108,7 @@ addin_crawl_chunks <- function() {
     "# -----------------------------------------------------------------\n",
     "# Chunks fetched by ctrlvee from: ", url, "\n",
     "# Strategy: ", strategy_label, "\n",
-    "# Date: ", Sys.time(), "\n",
+    "# Date: ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n",
     "# Chunks: ", length(chunks), "\n",
     "# NOTE: Check the source license before reusing this code.\n",
     "# -----------------------------------------------------------------\n\n"
