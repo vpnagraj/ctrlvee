@@ -29,7 +29,7 @@ addin_crawl_chunks <- function() {
 
   ## pop open the prompt for url
   url <- rstudioapi::showPrompt(
-    title   = "Extract R Code From URL",
+    title   = "ctrlvee: Extract R Code From URL",
     message = paste0(
       "Enter a URL to page that contains R code (e.g., raw source or rendered HTML)"
     ),
