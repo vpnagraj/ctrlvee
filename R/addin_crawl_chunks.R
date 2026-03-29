@@ -94,10 +94,7 @@ addin_crawl_chunks <- function() {
         "<b>Suggestions:</b><br>",
         "&#8226; For rendered HTML: make sure the page has visible R ",
         "code blocks.<br>",
-        "&#8226; For GitHub repos: check that the repo has .qmd or ",
-        ".Rmd files.<br>",
-        "&#8226; For raw files: use the GitHub <em>Raw</em> button URL.<br>",
-        "&#8226; Try forcing a different strategy."
+        "&#8226; For raw files: use the GitHub <em>Raw</em> button URL.<br>"
       )
     )
     return(invisible(NULL))
