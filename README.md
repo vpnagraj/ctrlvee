@@ -1,7 +1,7 @@
 # ctrlvee
 
  <!-- badges: start -->
-  [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+  [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)[![R-CMD-check](https://github.com/vpnagraj/ctrlvee/actions/workflows/R-CMD-check.yaml/badge.svghttps://github.com/vpnagraj/ctrlvee/actions/workflows/R-CMD-check.yaml/badge.svghttps://github.com/vpnagraj/ctrlvee/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vpnagraj/ctrlvee/actions/workflows/R-CMD-check.yaml)
   <!-- badges: end -->
 
 Fetch R code from an external source and insert it directly in an editor. Built as an add-in for integrating with Positron and RStudio.
