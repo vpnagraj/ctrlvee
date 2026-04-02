@@ -28,12 +28,10 @@
 #'
 #'
 #' @examples
-#' \dontrun{
 #' ## extract R code from a rendered Quarto book chapter (check license first!)
 #' chunks <- crawl_chunks_html("https://r4ds.hadley.nz/data-visualize.html")
 #' length(chunks)
 #' cat(chunks[[1]])
-#' }
 #'
 #' @export
 #' @importFrom httr2 resp_body_string

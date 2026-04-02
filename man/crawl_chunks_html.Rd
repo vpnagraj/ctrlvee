@@ -40,11 +40,9 @@ the majority of lines look like R console output (\verb{[1]}, \verb{##}).
 }
 }
 \examples{
-\dontrun{
 ## extract R code from a rendered Quarto book chapter (check license first!)
 chunks <- crawl_chunks_html("https://r4ds.hadley.nz/data-visualize.html")
 length(chunks)
 cat(chunks[[1]])
-}
 
 }

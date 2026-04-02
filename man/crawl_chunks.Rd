@@ -25,7 +25,6 @@ to a raw source file, a GitHub Gist, or a rendered
 HTML page and it returns the R code chunks found there.
 }
 \examples{
-\dontrun{
 ## rendered Quarto book chapter (HTML strategy detected)
 chunks <- crawl_chunks("https://r4ds.hadley.nz/data-visualize.html")
 
@@ -36,7 +35,6 @@ chunks <- crawl_chunks(
 )
 
 ## you can also dictate a specific strategy
-chunks <- crawl_chunks("https://example.com/tutorial", strategy = "html")
-}
+chunks <- crawl_chunks("https://r4ds.hadley.nz/data-visualize.html", strategy = "html")
 
 }

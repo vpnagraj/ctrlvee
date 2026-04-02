@@ -16,8 +16,6 @@
 #'   full file. Returns `character(0)` if the file is empty.
 #'
 #' @examples
-#' \dontrun{
-#' 
 #' ## fenced chunks from a Quarto source file
 #' chunks <- crawl_chunks_raw(
 #'   "https://raw.githubusercontent.com/hadley/r4ds/main/data-visualize.qmd"
@@ -27,7 +25,6 @@
 #' chunks <- crawl_chunks_raw(
 #'   "https://gist.githubusercontent.com/vpnagraj/59fa609c5adf47c8c7a5b156eb261be7/raw"
 #' )
-#' }
 #'
 #' @export
 #' @importFrom httr2 resp_body_string

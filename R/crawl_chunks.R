@@ -15,7 +15,6 @@
 #'
 #'
 #' @examples
-#' \dontrun{
 #' ## rendered Quarto book chapter (HTML strategy detected)
 #' chunks <- crawl_chunks("https://r4ds.hadley.nz/data-visualize.html")
 #'
@@ -26,9 +25,8 @@
 #' )
 #'
 #' ## you can also dictate a specific strategy
-#' chunks <- crawl_chunks("https://example.com/tutorial", strategy = "html")
-#' }
-#'
+#' chunks <- crawl_chunks("https://r4ds.hadley.nz/data-visualize.html", strategy = "html")
+#' 
 #' @export
 crawl_chunks <- function(url, strategy = c("auto", "raw", "html"),
                          verbose = TRUE) {
