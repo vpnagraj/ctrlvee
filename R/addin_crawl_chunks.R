@@ -16,6 +16,12 @@
 #'
 #' @return Called for side effects (i.e., inserting text); returns `NULL` invisibly.
 #' @export
+#' 
+#' @examples
+#' if (interactive() && rstudioapi::isAvailable()) {
+#'   addin_crawl_chunks()
+#' }
+#' 
 #' @importFrom rstudioapi showPrompt insertText showDialog isAvailable getActiveDocumentContext
 addin_crawl_chunks <- function() {
 

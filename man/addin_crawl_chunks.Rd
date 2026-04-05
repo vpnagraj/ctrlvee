@@ -29,3 +29,9 @@ in Positron, search for \emph{"Extract External R Code and Insert Inline"}, and 
 preferred shortcut (e.g. \code{Ctrl+Shift+U} / \code{Cmd+Shift+U}).
 }
 
+\examples{
+if (interactive() && rstudioapi::isAvailable()) {
+  addin_crawl_chunks()
+}
+
+}
