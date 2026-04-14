@@ -9,15 +9,15 @@ http_get(url, accept = NULL, token = NULL)
 \arguments{
 \item{url}{Character vector of length 1 with the URL to fetch}
 
-\item{accept}{Optional Accept header value (e.g. ,\code{"application/vnd.github.v3+json"}).}
+\item{accept}{Optional Accept header value (e.g., \code{"application/vnd.github.v3+json"})}
 
 \item{token}{Optional Authorization token (e.g., a GitHub PAT)}
 }
 \value{
-An httr2 response object.
+An \code{httr2} response object.
 }
 \description{
-Wraps httr2 boilerplate so each strategy doesn't have to repeat it.
+Helper wrapper for \code{httr2} boilerplate so each strategy doesn't have to repeat it.
 Returns the response object or stops with a descriptive error message.
 }
 \keyword{internal}

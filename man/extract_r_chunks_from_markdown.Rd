@@ -13,9 +13,7 @@ extract_r_chunks_from_markdown(text)
 Character vector of extracted code bodies.
 }
 \description{
-A line-by-line state machine that recognises the common R code fence
-styles used in R Markdown, Quarto, and GitHub Markdown:
-}
-\details{
-Non-R fenced blocks (e.g., \code{python}, \code{sql}, etc.) are skipped.
+A helper to go line-by-line through a Markdown file to find the common R code fence
+styles used in R Markdown, Quarto, and GitHub Markdown.
+Note that non-R fenced blocks (e.g., \code{python}, \code{sql}, etc.) are skipped.
 }

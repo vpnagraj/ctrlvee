@@ -13,7 +13,7 @@ crawl_chunks_raw(url, verbose = TRUE)
 }
 \value{
 A character vector where each element is the body of one R
-chunk. For plain \code{.R} files, a length-1 vector containing the
+chunk. For plain \code{.R} files, a vector of length 1 containing the
 full file. Returns \code{character(0)} if the file is empty.
 }
 \description{

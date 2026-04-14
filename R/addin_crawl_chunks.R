@@ -5,8 +5,7 @@
 #' 1. Opens a dialog asking the user for a web URL.
 #' 2. Auto-detects the best extraction strategy.
 #' 3. Fetches the page and extracts R code chunks.
-#' 4. Inserts the extracted code into the active source editor at the
-#'    current cursor position.
+#' 4. Inserts the extracted code into the active source editor at the current cursor position.
 #'
 #' @section Keyboard shortcut:
 #' After installing the package, open
@@ -80,8 +79,7 @@ addin_crawl_chunks <- function() {
           "<b>Error:</b> ", html_escape(conditionMessage(e)),
           "<br><br>",
           "<b>Tip:</b> Try forcing a different strategy in the console:<br>",
-          "<code>crawl_chunks('", html_escape(url),
-          "', strategy = 'html')</code>"
+          "<code>crawl_chunks('", html_escape(url), "', strategy = 'html')</code>"
         )
       )
       return(NULL)
@@ -95,8 +93,7 @@ addin_crawl_chunks <- function() {
     rstudioapi::showDialog(
       title   = "No R Chunks Found",
       message = paste0(
-        "The page was fetched successfully (strategy: <b>", strategy_label,
-        "</b>) but no R code chunks were found.<br><br>",
+        "The page was fetched successfully (strategy: <b>", strategy_label, "</b>) but no R code chunks were found.<br><br>",
         "<b>Suggestions:</b><br>",
         "&#8226; For rendered HTML: make sure the page has visible R ",
         "code blocks.<br>",

@@ -17,8 +17,7 @@ When invoked from the Addins menu or a keyboard shortcut, this function:
 \item Opens a dialog asking the user for a web URL.
 \item Auto-detects the best extraction strategy.
 \item Fetches the page and extracts R code chunks.
-\item Inserts the extracted code into the active source editor at the
-current cursor position.
+\item Inserts the extracted code into the active source editor at the current cursor position.
 }
 }
 \section{Keyboard shortcut}{

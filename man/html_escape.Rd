@@ -13,7 +13,6 @@ html_escape(x)
 The same vector but with \code{&}, \code{<}, and \code{>} escaped.
 }
 \description{
-RStudio's \code{\link[rstudioapi:showDialog]{rstudioapi::showDialog()}} renders basic HTML in the message
-body, so user-supplied strings must be escaped to prevent rendering issues.
+Helper function to escape HTML in RStudio \code{\link[rstudioapi:showDialog]{rstudioapi::showDialog()}} dialog rendering.
 }
 \keyword{internal}

@@ -10,8 +10,7 @@
 #'   pattern using [detect_strategy()].
 #' @param verbose Logical; default is `TRUE` and progress messages are printed
 #'
-#' @return A character vector of R code chunk bodies. Returns
-#'   `character(0)` if no R chunks are found.
+#' @return A character vector of R code chunk bodies. Returns `character(0)` if no R chunks are found.
 #'
 #'
 #' @examples
@@ -19,7 +18,7 @@
 #' chunks <- crawl_chunks("https://r4ds.hadley.nz/data-visualize.html")
 #'
 #'
-#' ## GitHub Gist (plain .R file) (raw strategy detected)
+#' ## GitHub Gist ... plain .R file (raw strategy detected)
 #' chunks <- crawl_chunks(
 #'   "https://gist.github.com/vpnagraj/59fa609c5adf47c8c7a5b156eb261be7"
 #' )
@@ -28,8 +27,7 @@
 #' chunks <- crawl_chunks("https://r4ds.hadley.nz/data-visualize.html", strategy = "html")
 #' 
 #' @export
-crawl_chunks <- function(url, strategy = c("auto", "raw", "html"),
-                         verbose = TRUE) {
+crawl_chunks <- function(url, strategy = c("auto", "raw", "html"), verbose = TRUE) {
 
   ## match and validate the strategy and URL args
   strategy <- match.arg(strategy)

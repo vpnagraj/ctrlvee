@@ -1,7 +1,6 @@
 #' Fetch and extract R code blocks from a rendered HTML page
 #'
-#' Downloads an HTML page (e.g. a rendered Quarto book chapter at
-#' `r4ds.hadley.nz`) and extracts code blocks that are tagged as R.
+#' Downloads an HTML page (e.g., a rendered Quarto book chapter) and extracts code blocks that are tagged as R.
 #'
 #' @param url Character vector of length 1 with the URL to fetch
 #' @param verbose Logical; default is `TRUE` and progress messages are printed
@@ -11,24 +10,23 @@
 #'   none are found.
 #'
 #' @details
-#' ## What gets extracted
 #'
 #' The function looks for `<code>` elements whose `class` attribute
-#' matches known patterns for R source code (e.g. `sourceCode r`,
+#' matches known patterns for R source code (e.g., `sourceCode r`,
 #' `language-r`). It then grabs the inner text, stripping any
-#' syntax-highlighting `<span>` elements.
+#' syntax highlighting `<span>` elements.
 #'
-#' ## Limitations
-#'
-#' * Chunk options (labels, `echo`, `eval`, etc.) are lost in rendered HTML
+#' It is important to note that:
+#' 
+#' - Chunk options (labels, `echo`, `eval`, etc.) are lost in rendered HTML
 #'   because the renderer strips them.
-#' * Output blocks that the renderer styled identically to source blocks
+#' - Output blocks that the renderer styled identically to source blocks
 #'   may occasionally be captured. A heuristic filters out blocks where
-#'   the majority of lines look like R console output (`[1]`, `##`).
+#'   the majority (>50%) of lines look like R console output (e.g., `[1]`, `##`).
 #'
 #'
 #' @examples
-#' ## extract R code from a rendered Quarto book chapter (check license first!)
+#' ## extract R code from a rendered Quarto book chapter
 #' chunks <- crawl_chunks_html("https://r4ds.hadley.nz/data-visualize.html")
 #' length(chunks)
 #' cat(chunks[[1]])
@@ -59,7 +57,7 @@ crawl_chunks_html <- function(url, verbose = interactive()) {
 
 #' Extract R code blocks from an HTML string
 #'
-#' The HTML-parsing workhorse used by [crawl_chunks_html()]. Also
+#' Helper function to do HTML-parsing in [crawl_chunks_html()]. Also
 #' exported so users can call it on local HTML strings if needed.
 #'
 #' @param html A character vector of length 1 containing HTML content

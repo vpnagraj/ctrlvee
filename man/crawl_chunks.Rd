@@ -16,8 +16,7 @@ pattern using \code{\link[=detect_strategy]{detect_strategy()}}.}
 \item{verbose}{Logical; default is \code{TRUE} and progress messages are printed}
 }
 \value{
-A character vector of R code chunk bodies. Returns
-\code{character(0)} if no R chunks are found.
+A character vector of R code chunk bodies. Returns \code{character(0)} if no R chunks are found.
 }
 \description{
 The primary engine of the ctrlvee package. Give it a URL
@@ -29,7 +28,7 @@ HTML page and it returns the R code chunks found there.
 chunks <- crawl_chunks("https://r4ds.hadley.nz/data-visualize.html")
 
 
-## GitHub Gist (plain .R file) (raw strategy detected)
+## GitHub Gist ... plain .R file (raw strategy detected)
 chunks <- crawl_chunks(
   "https://gist.github.com/vpnagraj/59fa609c5adf47c8c7a5b156eb261be7"
 )
