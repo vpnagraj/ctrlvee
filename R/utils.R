@@ -64,7 +64,7 @@ http_get <- function(url, accept = NULL, token = NULL) {
   req <- 
     httr2::request(url) %>%
     httr2::req_timeout(seconds = 15) %>%
-    httr2::req_user_agent("crawl_chunks agent")
+    httr2::req_user_agent("crawl agent")
 
   ## optionally add headers and token
   hdrs <- list()
