@@ -24,7 +24,13 @@ Enter `ctrlvee` ...
 
 ### Installation
 
-You can install `ctrlvee` by cloning the repo and installing from source.
+To install `ctrlvee` from CRAN:
+
+```r
+install.packages("ctrlvee")
+```
+
+You can install the development version of `ctrlvee` by cloning the repo and installing from source.
 
 Alternatively, install from GitHub with a tool like `pak`:
 
