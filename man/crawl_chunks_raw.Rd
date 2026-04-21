@@ -13,7 +13,7 @@ crawl_chunks_raw(url, verbose = TRUE)
 }
 \value{
 A character vector where each element is the body of one R
-chunk. For plain \code{.R} files, a length-1 vector containing the
+chunk. For plain \code{.R} files, a vector of length 1 containing the
 full file. Returns \code{character(0)} if the file is empty.
 }
 \description{
@@ -27,8 +27,6 @@ chunks are found), the entire file content is returned as a single
 chunk.
 }
 \examples{
-\dontrun{
-
 ## fenced chunks from a Quarto source file
 chunks <- crawl_chunks_raw(
   "https://raw.githubusercontent.com/hadley/r4ds/main/data-visualize.qmd"
@@ -38,6 +36,5 @@ chunks <- crawl_chunks_raw(
 chunks <- crawl_chunks_raw(
   "https://gist.githubusercontent.com/vpnagraj/59fa609c5adf47c8c7a5b156eb261be7/raw"
 )
-}
 
 }

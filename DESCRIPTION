@@ -1,12 +1,12 @@
 Package: ctrlvee
-Title: Extract External R Code and Insert Inline
-Version: 0.0.0.9000
+Title: Extract External 'R' Code and Insert Inline
+Version: 0.1.0
 Authors@R: 
-    person("VP", "Nagraj", email = "nagraj@nagraj.net", role = c("aut", "cre"))
-Description: An RStudio/Positron addin that prompts the user for a web URL,
-    fetches the page content, extracts R code chunks, and inserts those code chunks
-    into the active editor at the current cursor position. Supports extraction of raw Markdown/Quarto source files, GitHub Gists and rendered HTML pages that have pre/code elements
-    with R-related classes.
+    person("VP", "Nagraj", email = "nagraj@nagraj.net", role = c("aut", "cre", "cph"))
+Description: An 'RStudio' and 'Positron' add-in that prompts the user for a web 'URL',
+    fetches the page content, extracts 'R' code chunks, and inserts those code chunks
+    into the active editor at the current cursor position. Supports extraction of raw 
+    'Markdown' or 'Quarto' source files, 'GitHub' Gist and rendered 'HTML' pages that have markup elements with 'R'-related classes.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

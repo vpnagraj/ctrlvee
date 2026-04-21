@@ -17,34 +17,27 @@ one R code block, in document order. Returns \code{character(0)} if
 none are found.
 }
 \description{
-Downloads an HTML page (e.g. a rendered Quarto book chapter at
-\code{r4ds.hadley.nz}) and extracts code blocks that are tagged as R.
+Downloads an HTML page (e.g., a rendered Quarto book chapter) and extracts code blocks that are tagged as R.
 }
 \details{
-\subsection{What gets extracted}{
-
 The function looks for \verb{<code>} elements whose \code{class} attribute
-matches known patterns for R source code (e.g. \verb{sourceCode r},
+matches known patterns for R source code (e.g., \verb{sourceCode r},
 \code{language-r}). It then grabs the inner text, stripping any
-syntax-highlighting \verb{<span>} elements.
-}
+syntax highlighting \verb{<span>} elements.
 
-\subsection{Limitations}{
+It is important to note that:
 \itemize{
 \item Chunk options (labels, \code{echo}, \code{eval}, etc.) are lost in rendered HTML
 because the renderer strips them.
 \item Output blocks that the renderer styled identically to source blocks
 may occasionally be captured. A heuristic filters out blocks where
-the majority of lines look like R console output (\verb{[1]}, \verb{##}).
-}
+the majority (>50\%) of lines look like R console output (e.g., \verb{[1]}, \verb{##}).
 }
 }
 \examples{
-\dontrun{
-## extract R code from a rendered Quarto book chapter (check license first!)
+## extract R code from a rendered Quarto book chapter
 chunks <- crawl_chunks_html("https://r4ds.hadley.nz/data-visualize.html")
 length(chunks)
 cat(chunks[[1]])
-}
 
 }

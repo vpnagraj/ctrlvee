@@ -10,7 +10,7 @@ is_valid_url(url)
 \item{url}{Character vector of length 1 with the URL}
 }
 \value{
-Logical \code{TRUE} or \code{FALSE} as to whether the string passes the basic pattern.
+Logical \code{TRUE} or \code{FALSE} as to whether the string passes the basic pattern
 }
 \description{
 Cursory check that the input starts with \verb{http://} or

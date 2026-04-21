@@ -15,16 +15,10 @@ One of \code{"raw"}, \code{"github"}, or \code{"html"}.
 \description{
 Examines the URL pattern and returns a strategy string that tells the
 caller which extraction function to use. This will be one of either:
+\code{"raw"} (URL points directly to a raw source file or a GitHub Gist) or
+\code{"html"} (URL is a rendered web page like a Quarto book chapter or pkgdown site).
 }
 \details{
-\describe{
-\item{\code{"raw"}}{URL points directly to a raw source file or a GitHub
-Gist. Parse fenced code blocks from the plain text, falling back to
-treating the entire file as a single chunk for plain \code{.R} files.}
-\item{\code{"html"}}{URL is a rendered web page (e.g. a Quarto book chapter
-or pkgdown site). Parse \verb{<pre>/<code>} elements from the HTML.}
-}
-
 Detection is entirely URL-based (no network requests) and intentionally
 conservative; when in doubt it falls back to \code{"html"}.
 

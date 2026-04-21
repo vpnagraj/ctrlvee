@@ -1,15 +1,9 @@
 #' Detect the best extraction strategy for a URL
 #'
 #' Examines the URL pattern and returns a strategy string that tells the
-#' caller which extraction function to use. This will be one of either:
-#'
-#' \describe{
-#'   \item{`"raw"`}{URL points directly to a raw source file or a GitHub
-#'     Gist. Parse fenced code blocks from the plain text, falling back to
-#'     treating the entire file as a single chunk for plain `.R` files.}
-#'   \item{`"html"`}{URL is a rendered web page (e.g. a Quarto book chapter
-#'     or pkgdown site). Parse `<pre>/<code>` elements from the HTML.}
-#' }
+#' caller which extraction function to use. This will be one of either: 
+#' `"raw"` (URL points directly to a raw source file or a GitHub Gist) or
+#' `"html"` (URL is a rendered web page like a Quarto book chapter or pkgdown site).
 #'
 #' @param url Character vector of length 1 with the URL to fetch
 #' @return One of `"raw"`, `"github"`, or `"html"`.
@@ -39,6 +33,7 @@ detect_strategy <- function(url) {
   if (grepl("gist\\.githubusercontent\\.com", url, ignore.case = TRUE)) {
     return("raw")
   }
+
   ## gist urls with https get normalized to raw with normalize_url ... consider raw
   if (grepl("^https?://gist\\.github\\.com/", url, perl = TRUE)) {
     return("raw")
@@ -48,6 +43,7 @@ detect_strategy <- function(url) {
   if (grepl("raw\\.githubusercontent\\.com", url, ignore.case = TRUE)) {
     return("raw")
   }
+  
   ## files ending in common source extensions (regex is case-insensitive)
   if (grepl("\\.(qmd|rmd|rmarkdown|md|[rR])([?#].*)?$", url, perl = TRUE)) {
     return("raw")

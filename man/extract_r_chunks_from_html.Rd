@@ -13,6 +13,6 @@ extract_r_chunks_from_html(html)
 Character vector of extracted R code bodies.
 }
 \description{
-The HTML-parsing workhorse used by \code{\link[=crawl_chunks_html]{crawl_chunks_html()}}. Also
+Helper function to do HTML-parsing in \code{\link[=crawl_chunks_html]{crawl_chunks_html()}}. Also
 exported so users can call it on local HTML strings if needed.
 }

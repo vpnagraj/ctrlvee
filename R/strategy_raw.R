@@ -12,12 +12,10 @@
 #' @param verbose Logical; default is `TRUE` and progress messages are printed
 #'
 #' @return A character vector where each element is the body of one R
-#'   chunk. For plain `.R` files, a length-1 vector containing the
+#'   chunk. For plain `.R` files, a vector of length 1 containing the
 #'   full file. Returns `character(0)` if the file is empty.
 #'
 #' @examples
-#' \dontrun{
-#' 
 #' ## fenced chunks from a Quarto source file
 #' chunks <- crawl_chunks_raw(
 #'   "https://raw.githubusercontent.com/hadley/r4ds/main/data-visualize.qmd"
@@ -27,7 +25,6 @@
 #' chunks <- crawl_chunks_raw(
 #'   "https://gist.githubusercontent.com/vpnagraj/59fa609c5adf47c8c7a5b156eb261be7/raw"
 #' )
-#' }
 #'
 #' @export
 #' @importFrom httr2 resp_body_string
@@ -75,10 +72,9 @@ crawl_chunks_raw <- function(url, verbose = TRUE) {
 
 #' Extract fenced R code chunks from a Markdown text string
 #'
-#' A line-by-line state machine that recognises the common R code fence
-#' styles used in R Markdown, Quarto, and GitHub Markdown:
-#'
-#' Non-R fenced blocks (e.g., `python`, `sql`, etc.) are skipped.
+#' A helper to go line-by-line through a Markdown file to find the common R code fence
+#' styles used in R Markdown, Quarto, and GitHub Markdown. 
+#' Note that non-R fenced blocks (e.g., `python`, `sql`, etc.) are skipped.
 #'
 #' @param text Character vector of length 1 with Markdown source text
 #' @return Character vector of extracted code bodies.
@@ -87,7 +83,8 @@ extract_r_chunks_from_markdown <- function(text) {
 
   lines <- strsplit(text, "\n", fixed = TRUE)[[1]]
 
-  ## regex for finding start of R hunks
+  ## regex for finding start of R chunks
+  ## gnarly ... but basically looks for backticks and R or r
   open_pattern <- "^(`{3,})\\s*\\{\\s*[.]?[rR][^}]*\\}\\s*$|^(`{3,})\\s*[rR](?!\\w).*$"
   close_pattern <- "^`{3,}\\s*$"
 
@@ -98,7 +95,7 @@ extract_r_chunks_from_markdown <- function(text) {
   fence_len <- 3L
 
   ## loop throuhg all lines and pull out code in between open / close patterns detected
-  ## NOTE: liberal use of nzchar to check for empty strings
+  ## NOTE: uses nzchar to check for empty strings
   for (line in lines) {
     if (!in_chunk) {
       m <- regmatches(line, regexec(open_pattern, line, perl = TRUE))[[1]]

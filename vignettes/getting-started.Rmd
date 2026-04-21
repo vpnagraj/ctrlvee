@@ -1,0 +1,132 @@
+---
+title: "Getting started with ctrlvee"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with ctrlvee}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## What is ctrlvee?
+
+`ctrlvee` lets you fetch R code from a URL and insert it directly into your
+editor. It is built as an add-in for Positron and RStudio, so you can pull code
+from web books, blog posts, vignettes, READMEs, and other online sources
+without copying and pasting by hand.
+
+## Installation
+
+Install `ctrlvee` from CRAN:
+
+```{r, eval = FALSE}
+install.packages("ctrlvee")
+```
+
+Or from GitHub with `pak`:
+
+```{r, eval = FALSE}
+#install.packages("pak")
+pak::pkg_install("vpnagraj/ctrlvee")
+```
+
+## Using the add-in
+
+The recommended way to use `ctrlvee` is through the IDE add-in. 
+
+Here is the typical workflow:
+
+1. Open any `.R` script in Positron or RStudio
+2. Place your cursor where you want the extracted code to appear
+3. Launch the add-in via **Addins > Extract External R Code and Insert Inline** (or with keyboard shortcut)
+4. Paste a URL into the dialog (for example, a rendered Quarto bookchapter)
+5. The extracted code is inserted at your cursor, along with a comment about
+   where it came from
+
+### Setting up a keyboard shortcut
+
+You may want a keyboard shortcut for easier access to the add-in. The steps depend on your IDE:
+
+- **Positron:** Open the Command Palette, then search for "Extract External R Code".
+- **RStudio:** Go to Tools > Modify Keyboard Shortcuts, then search for "Extract External R Code".
+
+## Using ctrlvee programmatically
+
+Stritcly speaking, you don't have to use the add-in. The package includes exported functions that you can call from the console or from your own scripts.
+
+### Crawling code chunks
+
+`crawl_chunks()` is the main workhorse of `ctrlvee`. It will fetch the contents of a URL, detect what kind of source it is, and return the R code it finds:
+
+```{r, eval = FALSE}
+library(ctrlvee)
+
+## crawl code chunks from a rendered quarto chapter
+result <- crawl_chunks("https://dstt.stephenturner.us/validation.html")
+
+## inspect the result
+result
+```
+
+### Strategy detection
+
+`ctrlvee` decides how to parse a page by detecting a "strategy". Rendered HTML
+pages (like a Quarto book or an RMarkdown vignette) are handled differently
+from raw source files (like an `.Rmd` or `.qmd` on GitHub).
+
+You can see which strategy `ctrlvee` would choose for a given URL:
+
+```{r, eval = FALSE}
+## check the detected strategy for a rendered page
+detect_strategy("https://dstt.stephenturner.us/validation.html")
+```
+
+You can override the strategy used if needed:
+
+```{r, eval = FALSE}
+## force the html strategy explicitly
+crawl_chunks(
+  "https://dstt.stephenturner.us/validation.html",
+  strategy = "html"
+)
+```
+
+## Provenance
+
+When `ctrlvee` inserts code into your editor, it includes a comment at the top
+that records the source URL. This is intentional. Knowing where code comes from
+is important for reproducibility.
+
+Before running extracted code, keep the following in mind:
+
+- **Review first** Look at the code before you run it. Make sure you
+  understand what it does.
+- **Check the license** Code being publicly available does not mean it is
+  free to reuse however you like. Always read the license.
+- **Install dependencies** External code often assumes certain packages are
+  already installed. You may need to install them yourself, and be aware that
+  package versions may have changed since the code was written.
+
+## Examples to try
+
+To get a feel for what `ctrlvee` can do, the table below provides some example
+URLs to try. They are organized by source type so you can see the range of
+content that `ctrlvee` handles.
+
+| Type | Source | URL |
+|:-----|:-------|:----|
+| Book | Data Science Team Training: Data Validation and QA | `https://dstt.stephenturner.us/validation.html` |
+| Book | Text Mining with R: Topic Modeling | `https://www.tidytextmining.com/topicmodeling` |
+| Book | The Epidemiologist R Handbook: Transmission Chains | `https://epirhandbook.com/en/new_pages/transmission_chains.html` |
+| pkgdown vignette | ggplot2: Aesthetic Specifications | `https://ggplot2.tidyverse.org/articles/ggplot2-specs.html` |
+| pkgdown vignette | tidyr: Pivoting | `https://tidyr.tidyverse.org/articles/pivot.html` |
+| pkgdown vignette | stringr: Regular Expressions | `https://stringr.tidyverse.org/articles/regular-expressions.html` |
+| Raw source | dplyr: Two Tables Vignette | `https://raw.githubusercontent.com/tidyverse/dplyr/refs/heads/main/vignettes/two-table.Rmd` |
+| Raw source | pracpac: Basic Usage Vignette | `https://raw.githubusercontent.com/signaturescience/pracpac/refs/heads/main/vignettes/basic-usage.Rmd` |
+| Raw source | Example Outbreak Animation Gist | `https://gist.github.com/vpnagraj/b6c79f1a9b51166668649fa7ff28d3fb` |

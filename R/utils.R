@@ -4,7 +4,7 @@
 #' `https://` and contains at least one dot in the domain portion.
 #'
 #' @param url Character vector of length 1 with the URL
-#' @return Logical `TRUE` or `FALSE` as to whether the string passes the basic pattern.
+#' @return Logical `TRUE` or `FALSE` as to whether the string passes the basic pattern
 #' @keywords internal
 is_valid_url <- function(url) {
   if (is.null(url) || length(url) == 0 || is.na(url)) {
@@ -34,8 +34,7 @@ collapse_chunks <- function(chunks) {
 
 #' Minimal HTML escaping for IDE dialog messages
 #'
-#' RStudio's [rstudioapi::showDialog()] renders basic HTML in the message
-#' body, so user-supplied strings must be escaped to prevent rendering issues.
+#' Helper function to escape HTML in RStudio [rstudioapi::showDialog()] dialog rendering.
 #'
 #' @param x A character vector of length 1
 #' @return The same vector but with `&`, `<`, and `>` escaped.
@@ -50,13 +49,13 @@ html_escape <- function(x) {
 
 #' Make an HTTP GET request with standard headers and timeout
 #'
-#' Wraps httr2 boilerplate so each strategy doesn't have to repeat it.
+#' Helper wrapper for `httr2` boilerplate so each strategy doesn't have to repeat it.
 #' Returns the response object or stops with a descriptive error message.
 #'
 #' @param url Character vector of length 1 with the URL to fetch
-#' @param accept Optional Accept header value (e.g. ,`"application/vnd.github.v3+json"`).
+#' @param accept Optional Accept header value (e.g., `"application/vnd.github.v3+json"`)
 #' @param token Optional Authorization token (e.g., a GitHub PAT)
-#' @return An httr2 response object.
+#' @return An `httr2` response object.
 #' @keywords internal
 #' @importFrom httr2 request req_timeout req_user_agent req_headers req_perform resp_status
 http_get <- function(url, accept = NULL, token = NULL) {
@@ -65,7 +64,7 @@ http_get <- function(url, accept = NULL, token = NULL) {
   req <- 
     httr2::request(url) %>%
     httr2::req_timeout(seconds = 15) %>%
-    httr2::req_user_agent("ctrlvee R package")
+    httr2::req_user_agent("crawl agent")
 
   ## optionally add headers and token
   hdrs <- list()
